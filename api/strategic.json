@@ -1,1 +1,44 @@
+import OpenAI from "openai";
 
+const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+function cors(res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+}
+
+export default async function handler(req, res) {
+  cors(res);
+
+  if (req.method === "OPTIONS") return res.status(200).end();
+  if (req.method !== "POST") return res.status(405).json({ error: "Use POST" });
+
+  try {
+    const { message } = req.body || {};
+    if (!message || typeof message !== "string") {
+      return res.status(400).json({ error: "Missing message" });
+    }
+
+    const instructions = [
+      "You are 'Legacy AI' for Latimore Life & Legacy LLC in Central Pennsylvania.",
+      "Tone: warm, neighborly, clear, and education-first. No fear-based messaging.",
+      "Do NOT provide tax or legal advice. Do NOT guarantee outcomes or rates.",
+      "Avoid carrier-specific recommendations and avoid quoting pricing.",
+      "If asked for personal advice, encourage a no-pressure legacy review and explain what info would be needed.",
+      "Keep answers short (3-8 sentences) unless user asks for detail.",
+      "When explaining concepts, define jargon simply.",
+      "Always end with a helpful next step question."
+    ].join(" ");
+
+    const response = await client.responses.create({
+      model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
+      input: message,
+      instructions
+    });
+
+    return res.status(200).json({ reply: response.output_text });
+  } catch (err) {
+    return res.status(500).json({ error: "AI request failed" });
+  }
+}
