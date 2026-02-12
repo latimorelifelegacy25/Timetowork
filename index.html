@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jackson M. Latimore Sr. | Latimore Life & Legacy LLC</title>
+  <meta name="description" content="Education-first protection and legacy planning. Protecting Today. Securing Tomorrow. #TheBeatGoesOn" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__bg">
+      <img src="/hero.png" alt="" class="hero__img" />
+    </div>
+    <div class="hero__content">
+      <div class="badge">LATIMORE LIFE &amp; LEGACY LLC</div>
+      <h1>Jackson M. Latimore Sr.</h1>
+      <p class="subtitle">Founder &amp; CEO</p>
+      <p class="license">PA LICENSE #1268820</p>
+
+      <div class="icon-row" aria-label="Social links">
+        <a class="icon-btn" href="#" aria-label="LinkedIn" data-disabled="true">in</a>
+        <a class="icon-btn" href="#" aria-label="Facebook" data-disabled="true">f</a>
+        <a class="icon-btn" href="#" aria-label="Instagram" data-disabled="true">ig</a>
+        <a class="icon-btn" href="#" aria-label="Website" data-disabled="true">www</a>
+      </div>
+
+      <div class="quote-card">
+        <p>
+          “To empower every family with the financial tools and protection strategies necessary to turn hard work into a lasting legacy —
+          ensuring financial security is a foundation for generations to come.”
+        </p>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn--primary" href="mailto:latimorelifeandlegacy@gmail.com?subject=Secure%20Message%20-%20Latimore%20Life%20%26%20Legacy">Send Secure Email</a>
+        <a class="btn btn--gold" href="#" data-disabled="true">Schedule Legacy Review</a>
+        <a class="btn btn--ghost" href="#" data-disabled="true">Get Instant Quote</a>
+      </div>
+
+      <div class="mini-actions">
+        <button class="mini-btn" id="copyLinkBtn">Copy Link</button>
+        <button class="mini-btn mini-btn--dark" id="saveContactBtn">Save Contact</button>
+      </div>
+
+      <section class="section">
+        <div class="section__label">SERVICES</div>
+        <div class="cards">
+          <div class="service-card"><div class="service-title">Asset Protection</div><div class="service-sub">Rollovers and secure transfers</div></div>
+          <div class="service-card"><div class="service-title">Education Funds</div><div class="service-sub">College funding solutions</div></div>
+          <div class="service-card"><div class="service-title">Debt Management</div><div class="service-sub">Strategic debt reduction</div></div>
+          <div class="service-card"><div class="service-title">Life Insurance</div><div class="service-sub">Protection and living benefits</div></div>
+          <div class="service-card"><div class="service-title">Living Benefits</div><div class="service-sub">Access funds while living</div></div>
+        </div>
+      </section>
+
+      <section class="disclaimer">
+        <strong>Educational notice:</strong> Information shared here is for general education and planning conversations — not tax or legal advice.
+        Product features and costs vary by carrier and individual eligibility. Any guarantees depend on the issuing company’s contract terms and financial strength.
+      </section>
+
+    </div>
+  </header>
+
+  <!-- Floating Legacy AI button -->
+  <button class="fab" id="openChat" aria-label="Open Legacy AI">
+    <span class="fab__dot"></span>
+    <span class="fab__text">Legacy AI</span>
+  </button>
+
+  <!-- Chat modal -->
+  <div class="modal" id="chatModal" aria-hidden="true">
+    <div class="modal__overlay" id="chatOverlay"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Legacy AI chat">
+      <div class="modal__header">
+        <div>
+          <div class="modal__title">Legacy AI</div>
+          <div class="modal__subtitle">Education-first strategic assistant</div>
+        </div>
+        <button class="modal__close" id="closeChat" aria-label="Close">✕</button>
+      </div>
+
+      <div class="chat" id="chatLog" aria-live="polite">
+        <div class="msg msg--bot">
+          <div class="msg__label">Legacy AI</div>
+          <div class="msg__body">
+            Hey neighbor — I’m here to help you think through protection and legacy planning.
+            Ask me about mortgage protection, living benefits, final expense, or “what should I review this year?”
+          </div>
+        </div>
+      </div>
+
+      <form class="chat__input" id="chatForm">
+        <input id="chatText" type="text" placeholder="Type your question…" autocomplete="off" />
+        <button type="submit" class="send">Send</button>
+      </form>
+      <div class="chat__footnote">
+        Not tax/legal advice. For personalized guidance, schedule a no‑pressure legacy review.
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
